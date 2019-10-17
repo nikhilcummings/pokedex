@@ -28,7 +28,7 @@
     position:absolute;
     margin-left:350px;
     margin-top:1000px;
-    box-shadow: 30px 10px 500px 55px black;
+    box-shadow: 0px 0px 500px 55px black;
     /* box-shadow: 0px 0px 10px 2px black inset; */
     border-radius:15px;
 }

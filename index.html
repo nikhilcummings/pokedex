@@ -24,6 +24,8 @@
                 }
             });
             $('#start').click(function(){
+                $("#clickStart").hide();
+                $("#textArea").css('opacity','1')
                 $('#pokemon').animate({height:200},3000).delay(2000).animate({opacity:0},1000);
                 $('#iframeAudio').attr('src','ThemeSong.mp3');
                 $('#screen').addClass('shadow');
@@ -159,6 +161,9 @@
             <div id='frame'>
                     <div id='frameShadow'>
                 <div id='screen'>
+                    <div id="clickStart" style="text-align:center">
+                        <img src="img/start.gif" style="height:150px;width:auto;margin-top:30px">
+                    </div>
                     <img id='pokemon' src='img/logo.png' style='margin-left:8px;margin-top:4px;height:0px;width:375px'>
                     <div id='info'>
                         <p id='name' class='infoTags'>Name:</p>
@@ -183,7 +188,7 @@
                         <button id='left'></button>
                         <button id='right'></button>
                     </div>
-                    <textarea id='textArea' placeholder='&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Enter Pokemon name or ID, then click "A"' rows="7" cols="21" style="margin-left:110px;margin-top:-100px"></textarea>
+                    <textarea id='textArea' placeholder='&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Enter Pokemon name or ID, then click "A"' rows="7" cols="21" style="margin-left:110px;margin-top:-100px;opacity:0"></textarea>
                 </div>
             </div>
             </div>
