@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<header>
+    <title>Gotta Catch 'Em All</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+            if(!isChrome){
+                $('#iframeAudio').remove()
+            }
+            else{
+                $('#audio').remove()
+            }
+            var counter=0;
+            $('#frame').animate({'marginTop':'25px'},5000);
+            $('#music').click(function(){
+                var status = $('#iframeAudio').attr('src');
+                if(status.length===0){
+                    $('#iframeAudio').attr('src','ThemeSong.mp3');
+                }
+                else {
+                    $('#iframeAudio').attr('src','');
+                }
+            });
+            $('#start').click(function(){
+                $('#pokemon').animate({height:200},3000).delay(2000).animate({opacity:0},1000);
+                $('#iframeAudio').attr('src','ThemeSong.mp3');
+                $('#screen').addClass('shadow');
+                setTimeout(function(){ $('#screen').removeClass('shadow') }, 500);
+            })
+            $('#accept').click(function(){
+                // $( "#frame" ).effect('bounce');
+                //$(this).addClass('shadow');
+                $('.infoTags').animate({opacity:0},0);
+                $('.infoTagValues').animate({opacity:0},0);
+                $('#screen').addClass('shadow');
+                $('.infoTagValues').html('');
+                $('#pokemon').remove();
+                $('#screen').fadeTo(0,0);
+                //setTimeout(function(){ $('#accept').removeClass('shadow') }, 500);
+                setTimeout(function(){ $('#screen').removeClass('shadow') }, 500);
+                var input = $('textArea').val();
+                counter = input;
+                $.get('https://pokeapi.co/api/v2/pokemon/'+ input, function(res){
+                    var img = res.sprites.front_default;
+                    var name = res.species.name;
+                    var id = res.id;
+                    if(res.types.length == 1){
+                        var type = res.types[0].type.name;
+                    }
+                    if(res.types.length == 2){
+                        var type = res.types[0].type.name + ' / ' + res.types[1].type.name;
+                    }
+                    var height = res.height;
+                    var weight = res.weight;
+                    $('#screen').prepend('<img id="pokemon" style="display:inline-block;height:0px" src="' +img+ '">');
+                    $('#nameValue').append(name);
+                    $('#IDValue').append(id);
+                    $('#typeValue').append(type);
+                    $('#heightValue').append(height);
+                    $('#weightValue').append(weight);
+                    $("#screen").animate({opacity:1},3000);
+                    $('#pokemon').animate({height:220},3000);
+                    $('.infoTags').animate({opacity:1},3000);
+                    $('.infoTagValues').animate({opacity:1},3000);
+                }, 'json');
+            })
+            $('#left').click(function(){
+                // $( "#frame" ).effect('bounce');
+                //$(this).addClass('shadow');
+                $('.infoTags').animate({opacity:0},0);
+                $('.infoTagValues').animate({opacity:0},0);
+                $('#screen').addClass('shadow');
+                $('.infoTagValues').html('');
+                $('#pokemon').remove();
+                $('#screen').fadeTo(0,0);
+                //setTimeout(function(){ $('#accept').removeClass('shadow') }, 500);
+                setTimeout(function(){ $('#screen').removeClass('shadow') }, 500);
+                var input = $('textArea').val();
+                if(counter<2){
+                    counter=802;
+                }
+                $.get('https://pokeapi.co/api/v2/pokemon/'+ (counter--), function(res){
+                    var img = res.sprites.front_default;
+                    var name = res.species.name;
+                    var id = res.id;
+                    if(res.types.length == 1){
+                        var type = res.types[0].type.name;
+                    }
+                    if(res.types.length == 2){
+                        var type = res.types[0].type.name + ' / ' + res.types[1].type.name;
+                    }
+                    var height = res.height;
+                    var weight = res.weight;
+                    $('#screen').prepend('<img id="pokemon" style="display:inline-block;height:0px" src="' +img+ '">');
+                    $('#nameValue').append(name);
+                    $('#IDValue').append(id);
+                    $('#typeValue').append(type);
+                    $('#heightValue').append(height);
+                    $('#weightValue').append(weight);
+                    $("#screen").animate({opacity:1},3000);
+                    $('#pokemon').animate({height:220},3000);
+                    $('.infoTags').animate({opacity:1},3000);
+                    $('.infoTagValues').animate({opacity:1},3000);
+                }, 'json');             
+            })
+            $('#right').click(function(){
+                // $( "#frame" ).effect('bounce');
+                //$(this).addClass('shadow');
+                $('.infoTags').animate({opacity:0},0);
+                $('.infoTagValues').animate({opacity:0},0);
+                $('#screen').addClass('shadow');
+                $('.infoTagValues').html('');
+                $('#pokemon').remove();
+                $('#screen').fadeTo(0,0);
+                //setTimeout(function(){ $('#accept').removeClass('shadow') }, 500);
+                setTimeout(function(){ $('#screen').removeClass('shadow') }, 500);
+                var input = $('textArea').val();
+                if(counter==802){
+                    counter=0;
+                }
+                $.get('https://pokeapi.co/api/v2/pokemon/'+ (counter++), function(res){
+                    var img = res.sprites.front_default;
+                    var name = res.species.name;
+                    var id = res.id;
+                    if(res.types.length == 1){
+                        var type = res.types[0].type.name;
+                    }
+                    if(res.types.length == 2){
+                        var type = res.types[0].type.name + ' / ' + res.types[1].type.name;
+                    }
+                    var height = res.height;
+                    var weight = res.weight;
+                    $('#screen').prepend('<img id="pokemon" style="display:inline-block;height:0px" src="' +img+ '">');
+                    $('#nameValue').append(name);
+                    $('#IDValue').append(id);
+                    $('#typeValue').append(type);
+                    $('#heightValue').append(height);
+                    $('#weightValue').append(weight);
+                    $("#screen").animate({opacity:1},3000);
+                    $('#pokemon').animate({height:220},3000);
+                    $('.infoTags').animate({opacity:1},3000);
+                    $('.infoTagValues').animate({opacity:1},3000);
+                }, 'json');             
+            })
+            
+        })
+    </script>
+
+</header>
+<html>
+    <body>
+            <iframe src="" allow="autoplay" style="display:none" id="iframeAudio" type='audio/mpeg'></iframe>
+            <audio id='audio' autoplay>
+                <source src='ThemeSong.mp3' type='audio/mpeg'>
+            </audio>
+        <div id='wrapper'>
+            <div id='frame'>
+                    <div id='frameShadow'>
+                <div id='screen'>
+                    <img id='pokemon' src='img/logo.png' style='margin-left:8px;margin-top:4px;height:0px;width:375px'>
+                    <div id='info'>
+                        <p id='name' class='infoTags'>Name:</p>
+                        <p id='ID' class='infoTags'>ID:</p>
+                        <p id='type' class='infoTags'>Type:</p>
+                        <p id='height' class='infoTags'>Height:</p>
+                        <p id='weight' class='infoTags'>Weight:</p>
+                    </div>
+                    <div id='infoValues'>
+                        <p id='nameValue' class='infoTagValues'></p>
+                        <p id='IDValue' class='infoTagValues'></p>
+                        <p id='typeValue' class='infoTagValues'></p>
+                        <p id='heightValue' class='infoTagValues'></p>
+                        <p id='weightValue' class='infoTagValues'></p>
+                    </div>
+                </div>
+                <div id='input'>
+                    <button id='accept'></button>
+                    <div>
+                        <button id='music'>Music</button>
+                        <button id='start'>Start</button>
+                        <button id='left'></button>
+                        <button id='right'></button>
+                    </div>
+                    <textarea id='textArea' placeholder='&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Enter Pokemon name or ID, then click "A"' rows="7" cols="21" style="margin-left:110px;margin-top:-100px"></textarea>
+                </div>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,172 @@
+*{
+    margin:auto;
+    font-family:arial;
+    text-transform: capitalize;
+}
+#wrapper{
+    background-image:url('img/grass.jpg');
+    width:2000px;
+    height:2100px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#frameShadow{
+    vertical-align:top;
+    height:960px;
+    width:540px;
+    box-shadow: 0px 0px 10px 3px black inset;
+    position:absolute;
+    border-radius:15px;
+}
+#frame{
+    background-image:url('img/pokedex.jpg');
+    background-size:540px;
+    height:960px;
+    width:540px;
+    position:absolute;
+    margin-left:350px;
+    margin-top:1000px;
+    box-shadow: 30px 10px 500px 55px black;
+    /* box-shadow: 0px 0px 10px 2px black inset; */
+    border-radius:15px;
+}
+
+#screen{
+    height:215px;
+    width:400px;
+    margin-top:270px;
+    margin-left:40px;
+    opacity:1;
+}
+
+#pokemon{
+    height:220px;
+    width:auto;
+}
+
+#info{
+    vertical-align:top;
+    display:inline-block;
+    margin-top:15px;
+    margin-left:-20px;
+}
+#infoValues{
+    display:inline-block;
+    margin-top:15px;
+    vertical-align:top;
+    margin-left:15px;
+    color:white;
+}
+
+.infoTags{
+    margin-bottom:10px;
+    color:white;
+    opacity:0;
+}
+.infoTagValues{
+    margin-bottom:10px;
+}
+
+#input{
+    margin-top:185px;
+    margin-left:0px;
+    width:275px;
+    color:white;
+}
+#textArea{
+    background: transparent;
+    border: none;
+}
+
+textArea{
+    text-align:center;
+    color:white;
+}
+
+#accept{
+    border-radius:50px;
+    height:71px;
+    width:71px;
+    margin-top:-43px;
+    margin-left:18px;
+    background:transparent;
+    border:none;
+    display:inline-block;
+}
+#music{
+    height:24px;
+    width:85px;
+    display:inline-block;
+    margin-left:100px;
+    margin-top:-75px;
+    vertical-align:top;
+    border-radius:40px;
+    color:white;
+    background:transparent;
+    border:none;
+}
+#start{
+    height:24px;
+    width:87px;
+    display:inline-block;
+    margin-left:198px;
+    margin-top:-94px;
+    vertical-align:top;
+    border-radius:40px;
+    color:white;
+    background:transparent;
+    border:none;
+}
+#left{
+    height:50px;
+    width:70px;
+    display:inline-block;
+    margin-left:301px;
+    margin-top:-53px;
+    vertical-align:top;
+    background:transparent;
+    border:none;
+}
+#right{
+    height:50px;
+    width:70px;
+    display:inline-block;
+    margin-left:390px;
+    margin-top:-71px;
+    vertical-align:top;
+    background:transparent;
+    border:none;
+}
+
+.buttonGlow{
+    box-shadow: 0px 0px 50px 125px yellow;
+}
+
+.shadow {
+    -webkit-box-shadow: 0px 0px 300px 1525px yellow;
+    -moz-box-shadow: 0px 0px 30px 1525px yellow;
+    box-shadow: 0px 0px 300px 1525px yellow;
+    -webkit-transition: all 1.55s linear;
+    -o-transition: all 1.55s linear;
+    -moz-transition: all 1.55s linear;
+    -ms-transition: all 1.55s linear;
+    -kthtml-transition: all 1.55s linear;
+    transition: all 1.55s linear;
+}
+.screenShadow {
+    -webkit-box-shadow: 0px 0px 100px 225px yellow;
+    -moz-box-shadow: 0px 0px 100px 225px yellow;
+    box-shadow: 0px 0px 100px 225px yellow;
+    -webkit-transition: all .25s linear;
+    -o-transition: all .25s linear;
+    -moz-transition: all .25s linear;
+    -ms-transition: all .25s linear;
+    -kthtml-transition: all .25s linear;
+    transition: all .25s linear;
+}
+
+#audio{
+
+}
